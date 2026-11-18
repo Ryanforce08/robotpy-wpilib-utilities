@@ -812,9 +812,9 @@ class MagicRobot(wpilib.RobotBase):
         type_hints = typing.get_type_hints(ctyp.__init__)
         NoneType = type(None)
         init_return_type = type_hints.pop("return", NoneType)
-        assert init_return_type is NoneType, (
-            f"{ctyp!r} __init__ had an unexpected non-None return type hint"
-        )
+        assert (
+            init_return_type is NoneType
+        ), f"{ctyp!r} __init__ had an unexpected non-None return type hint"
         requests = get_injection_requests(type_hints, name)
         injections = find_injections(requests, injectables, name)
 
