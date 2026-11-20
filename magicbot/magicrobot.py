@@ -586,7 +586,6 @@ class MagicRobot(wpilib.RobotBase):
         self.logger.info(
             "-> OpMode %s (%s, class: %s)", name, mode.name, opmode_cls.__name__
         )
-        self.publish_opmodes()
 
     def remove_opmode(self, mode: hal.RobotMode, name: str) -> None:
         """
