@@ -360,7 +360,7 @@ class MagicRobot(wpilib.RobotBase):
     def end_competition(self) -> None:
         self.__done = True
 
-    def _loop_func(self):
+    def _loop_func(self) -> None:
         watchdog = self.watchdog
         watchdog.reset()
 
