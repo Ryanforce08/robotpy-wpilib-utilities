@@ -37,8 +37,7 @@ class AutonomousOpMode(StateMachine, PeriodicOpMode):
         PeriodicOpMode.__init__(self, robot)
 
     def start(self):
-        self._timer = wpilib.Timer()
-        self._timer.restart()
+        self._timer = wpilib.Timer.create_started()
         self.on_enable()
 
     def periodic(self) -> None:
