@@ -2,7 +2,6 @@ from magicbot.state_machine import (
     default_state,
     state,
     timed_state,
-    AutonomousOpMode,
     StateMachine,
     IllegalCallError,
     NoFirstStateError,
@@ -14,6 +13,8 @@ from magicbot.state_machine import (
 from magicbot.magic_tunable import setup_tunables
 
 from magicbot.magicrobot import MagicRobot
+
+from magicbot.opmode import AutonomousOpMode
 
 import ntcore
 import pytest
