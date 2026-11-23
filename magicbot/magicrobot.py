@@ -360,7 +360,7 @@ class MagicRobot(wpilib.RobotBase):
     def end_competition(self) -> None:
         self.__done = True
 
-    def _loop_func(self):
+    def _loop_func(self) -> None:
         watchdog = self.watchdog
         watchdog.reset()
 
@@ -586,7 +586,6 @@ class MagicRobot(wpilib.RobotBase):
         self.logger.info(
             "-> OpMode %s (%s, class: %s)", name, mode.name, opmode_cls.__name__
         )
-        self.publish_opmodes()
 
     def remove_opmode(self, mode: hal.RobotMode, name: str) -> None:
         """
@@ -812,9 +811,9 @@ class MagicRobot(wpilib.RobotBase):
         type_hints = typing.get_type_hints(ctyp.__init__)
         NoneType = type(None)
         init_return_type = type_hints.pop("return", NoneType)
-        assert init_return_type is NoneType, (
-            f"{ctyp!r} __init__ had an unexpected non-None return type hint"
-        )
+        assert (
+            init_return_type is NoneType
+        ), f"{ctyp!r} __init__ had an unexpected non-None return type hint"
         requests = get_injection_requests(type_hints, name)
         injections = find_injections(requests, injectables, name)
 
